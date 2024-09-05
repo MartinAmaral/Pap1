@@ -12,7 +12,6 @@ public class Distribucion {
     private int fechaPreparacion;
     private int fechaEntrega;
     private EstadoDistribucion estado;
-    
     private Beneficiario beneficiario;
     private Donacion donacion;
 
@@ -20,11 +19,23 @@ public class Distribucion {
         super();
     }
     
+    public Distribucion(int fechaPreparacion, int fechaEntrega, EstadoDistribucion estado, Beneficiario beneficiario, Donacion donacion) {
+    this.fechaPreparacion = fechaPreparacion;
+    this.fechaEntrega = fechaEntrega;
+    this.estado = estado;
+    this.beneficiario = beneficiario;
+    this.donacion = donacion;
+}
+    
     public int getFechaPreparacion(){
         return fechaPreparacion;
     }
     public int getFechaEntrega(){
         return fechaEntrega;
+    }
+    
+    public EstadoDistribucion getFechaEstado(){
+        return estado;
     }
     public EstadoDistribucion getEstadoDistribucion(){
         return estado;
@@ -40,3 +51,11 @@ public class Distribucion {
         this.estado = estado;
     }
 }
+
+/*
+/ distribucion.getFechaPreparacion(),
+            distribucion.getFechaEntrega(),
+            distribucion.getEstadoDistribucion(), 
+            distribucion.getBeneficiario(),
+            distribucion.getDonacion()
+*/

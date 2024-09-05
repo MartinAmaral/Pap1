@@ -8,6 +8,8 @@ package com.mycompany.pap1.datatypes;
 import com.mycompany.pap1.logica.EstadoDistribucion;
 import com.mycompany.pap1.logica.Beneficiario;
 import com.mycompany.pap1.logica.Donacion;
+import com.mycompany.pap1.logica.Beneficiario;
+import com.mycompany.pap1.datatypes.dtBeneficiario;
 
 /**
  *
@@ -17,7 +19,6 @@ public class dtDistribucion {
     private int fechaPreparacion;
     private int fechaEntrega;
     private EstadoDistribucion estado;
-    
     private Beneficiario beneficiario;
     private Donacion donacion;
 
@@ -41,6 +42,12 @@ public class dtDistribucion {
         return estado;
     }
     
+    public Beneficiario getBeneficiario(){
+        return beneficiario;
+    }
+    public Donacion getDonacion(){
+        return donacion;   
+    }
     public void setFechaPreparacion(int fecha){
         fechaPreparacion = fecha;
     }
@@ -50,4 +57,5 @@ public class dtDistribucion {
     public void setEstadoDistribucion(EstadoDistribucion estado){
         this.estado = estado;
     }
+    
 }

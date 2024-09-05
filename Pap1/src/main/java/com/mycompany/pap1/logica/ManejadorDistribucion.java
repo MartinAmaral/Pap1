@@ -4,7 +4,6 @@
  */
 package com.mycompany.pap1.logica;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +13,18 @@ import java.util.List;
  */
 public class ManejadorDistribucion {
     private static ManejadorDistribucion instancia = null;
-    private List<Distribucion> distribucion = new ArrayList<>();
+    private List<Distribucion> distribuciones = new ArrayList<>();
     
     private ManejadorDistribucion(){}
     
     public static ManejadorDistribucion getInstancia(){
-            if (instancia == null)
-                instancia = new ManejadorDistribucion();
-            return instancia;
+        if (instancia == null)
+            instancia = new ManejadorDistribucion();
+        return instancia;
+    }
+    
+    public void agregarDistribucion(Distribucion distribucion) {
+        distribuciones.add(distribucion);
+        System.out.println("Distribución registrada con éxito.");
     }
 }
