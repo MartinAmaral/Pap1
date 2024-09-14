@@ -4,14 +4,23 @@
  */
 package com.mycompany.pap1.logica;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author martin
  */
-abstract class Usuario {
-    private String nombre;
+@MappedSuperclass
+public abstract class Usuario {
+    @Id
+    @Column(name = "email", unique = true)
     private String email;
+    @Column(name = "nombre")
+    private String nombre;
 
     public Usuario() {
         super();

@@ -6,13 +6,29 @@ package com.mycompany.pap1.logica;
 
 import java.util.List;
 import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
+
 /**
  *
  * @author martin
  */
-public abstract class Donacion {
-    int id;
-    LocalDate fechaIngresada;
+@Entity
+public class Donacion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    
+    private LocalDate fechaIngresada;
+
+    @OneToMany(mappedBy = "donacion", fetch = FetchType.LAZY)
+    private List<Distribucion> distribuciones;
 
     public Donacion() {
         super();
@@ -22,14 +38,22 @@ public abstract class Donacion {
         this.id = id;
         this.fechaIngresada = fechaIngresada;
     }
-    
+
     public int getId(){
         return id;
     }
     public LocalDate getFechaIngresada(){
         return fechaIngresada;
     }
-    
+
+    public List<Distribucion> getDistribuciones() {
+        return distribuciones;
+    }
+
+    public void setDistribuciones(List<Distribucion> distribuciones) {
+        this.distribuciones = distribuciones;
+    }
+
     public void setId(int id){
         this.id = id;
     }

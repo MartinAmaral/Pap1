@@ -1,21 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pap1.logica;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.List;
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author martin
  */
+@Entity
+@Table(name = "beneficiarios")
 public class Beneficiario extends Usuario {
+    @Column(name = "direccion")
     private String direccion;
+    @Column(name = "fecha_nacimiento")
     private int fechaNacimiento;
+    
+    @Column(name = "estado")
+    @Enumerated(EnumType.STRING)
     private EstadoBeneficiario estado;
+    @Column(name = "barrio")
     private Barrio barrio;
+    @OneToMany(mappedBy = "beneficiario")
     private List<Distribucion> distribuciones;
-
+    
     public Beneficiario() {
         super();
     }
@@ -33,7 +45,7 @@ public class Beneficiario extends Usuario {
         return barrio;
     }
     
-    public void setDirecion(String direccion){
+    public void setDireccion(String direccion){
         this.direccion = direccion;
     }
     public void setFechaNacimiento(int fecha){
@@ -45,5 +57,4 @@ public class Beneficiario extends Usuario {
     public void setBarrio(Barrio barrio){
         this.barrio = barrio;
     }
-   
 }

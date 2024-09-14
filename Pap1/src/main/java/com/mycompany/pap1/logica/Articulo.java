@@ -5,14 +5,22 @@
 package com.mycompany.pap1.logica;
 
 import java.time.LocalDate;
-/**
- *
- * @author martin
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "articulos")
 public class Articulo extends Donacion {
     
+    @Column(name = "descripcion")
     private String descripcion;
+    
+    @Column(name = "peso")
     private float peso;
+    
+    @Column(name = "dimensiones")
     private String dimensiones;
 
     public Articulo(String descripcion, float peso, String dimensiones, int id, LocalDate fechaIngresada) {
@@ -41,5 +49,4 @@ public class Articulo extends Donacion {
     public void setDimensiones(String dimensiones){
         this.dimensiones = dimensiones;
     }
-    
 }

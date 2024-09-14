@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pap1.logica;
 
+import javax.persistence.Entity;
 
-/**
- *
- * @author horacio
- */
+@Entity
 public class Repartidor extends Usuario {
     private String numeroLicencia;
 
@@ -16,10 +10,10 @@ public class Repartidor extends Usuario {
         super();
     }
     
-    public String getnumeroLicencia(){
+    public String getNumeroLicencia(){
         return numeroLicencia;
     }
-    public void setnumeroLicencia(String numeroLicencia){
+    public void setNumeroLicencia(String numeroLicencia){
         this.numeroLicencia = numeroLicencia;
     }
 }

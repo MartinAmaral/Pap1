@@ -4,15 +4,22 @@
  */
 package com.mycompany.pap1.logica;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 /**
  *
  * @author martin
  */
 public enum Barrio {
+    @Enumerated(EnumType.STRING)
     CIUDAD_VIEJA,
+    @Enumerated(EnumType.STRING)
     CORDON,
+    @Enumerated(EnumType.STRING)
     PARQUE_RODO,
+    @Enumerated(EnumType.STRING)
     CENTRO,
+    @Enumerated(EnumType.STRING)
     PALERMO
 }

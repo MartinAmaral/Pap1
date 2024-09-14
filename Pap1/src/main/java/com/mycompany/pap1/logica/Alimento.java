@@ -4,15 +4,22 @@
  */
 package com.mycompany.pap1.logica;
 
-
 import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-/**
- *
- * @author martin
- */
+@Entity
+@Table(name = "alimentos")
 public class Alimento extends Donacion {
+    
+    @Column(name = "descripcion_productos")
     private String descripcionProductos;
+    
+    @Column(name = "cant_elementos")
     private int cantElementos;
 
     public Alimento(String descripcionProductos, int cantElementos, int id, LocalDate fechaIngresada) {
@@ -37,6 +44,4 @@ public class Alimento extends Donacion {
     public void setCantElementos(int cantidad){
         cantElementos = cantidad;
     }
-    
-
 }
