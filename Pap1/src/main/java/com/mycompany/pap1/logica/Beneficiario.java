@@ -1,23 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pap1.logica;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author martin
- */
-public class Beneficiario extends Usuario {
-    private String direccion;
-    private LocalDate fechaNacimiento;
-    private EstadoBeneficiario estado;
-    private Barrio barrio;
-    private List<Distribucion> distribuciones;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "beneficiarios")
+public class Beneficiario extends Usuario {
+    
+    @JoinColumn(name = "direccion")
+    private String direccion;
+    
+    @JoinColumn(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
+    
+    @Enumerated(EnumType.STRING)
+    @JoinColumn(name = "estado_id")
+    private EstadoBeneficiario estado;
+    
+    @Enumerated(EnumType.STRING)
+    @JoinColumn(name = "barrio_id")
+    private Barrio barrio;
+    
+    @OneToMany(mappedBy = "beneficiario")
+    private List<Distribucion> distribuciones;
+    
     public Beneficiario(String nombre, String email, String direccion, LocalDate fechaNacimiento, EstadoBeneficiario estado, Barrio barrio) {
         
         this.nombre = nombre;

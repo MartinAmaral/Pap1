@@ -1,20 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.pap1.logica;
 
-import java.util.List;
 import java.time.LocalDate;
-/**
- *
- * @author martin
- */
-public abstract class Donacion {
-    private static int contador = 0;
-    int id;
-    LocalDate fechaIngresada;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 
+@Entity
+public abstract class Donacion {
+    
+    private static int contador = 0;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column(name = "fecha_ingresada")
+    LocalDate fechaIngresada;
+    
+    @OneToMany(mappedBy = "donacion")
+    private List<Distribucion> distribuciones;
+    
     public Donacion() {
         super();
     }

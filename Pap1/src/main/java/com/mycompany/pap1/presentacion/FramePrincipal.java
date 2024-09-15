@@ -6,6 +6,8 @@
 package com.mycompany.pap1.presentacion;
 
 
+import com.mycompany.pap1.fabricas.FabricaCDistribucion;
+import com.mycompany.pap1.interfaces.IControladorDistribucion;
 import com.mycompany.pap1.interfaces.IControladorDonacion;
 import com.mycompany.pap1.logica.ControladorDonacion;
 import java.awt.BorderLayout;
@@ -36,18 +38,17 @@ public class FramePrincipal extends javax.swing.JFrame {
         initComponents();
         initCustomComponents();
     }
-        private void initCustomComponents() {
+       private void initCustomComponents() {
         // Inicializar el JDesktopPane
         desktopPane = new JDesktopPane();
         setContentPane(desktopPane);
         desktopPane.setLayout(new BorderLayout());
-        
+
         jMenuItem9.addActionListener(e -> mostrarModificarDonacion());
-        jMenuItem2.addActionListener(e -> mostrarAgregarDonacion());
-        
+        jMenuItem2.addActionListener(e -> mostrarAgregarDonacion()); // Add this line
+        jMenuItem3.addActionListener(e -> mostrarAgregarDistribucion()); // Add this line
 
         IControladorDonacion controlador = new ControladorDonacion();
-
     }
     private void mostrarAgregarDonacion() {
     IControladorDonacion controlador = new ControladorDonacion();
@@ -62,6 +63,13 @@ public class FramePrincipal extends javax.swing.JFrame {
         desktopPane.add(modificarDonacionFrame);
         modificarDonacionFrame.setVisible(true);
     }
+    private void mostrarAgregarDistribucion() {
+    IControladorDistribucion controlador = FabricaCDistribucion.getControlador();
+    AgregarDistribucion agregarDistribucionFrame = new AgregarDistribucion(controlador); // Pass controlador to constructor
+    agregarDistribucionFrame.pack(); // Ajusta el tamaño del JFrame
+    agregarDistribucionFrame.setLocationRelativeTo(null); // Centra el JFrame en la pantalla
+    agregarDistribucionFrame.setVisible(true); // Muestra el JFrame
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,9 +111,19 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setText("Donacion");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Distribucion");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuBar1.add(jMenu2);
@@ -166,6 +184,14 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

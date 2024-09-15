@@ -1,20 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pap1.logica;
 
-
 import java.time.LocalDate;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-/**
- *
- * @author martin
- */
+@Entity
+@Table(name = "alimentos")
 public class Alimento extends Donacion {
+    
+    @Column(nullable = false)
     private String descripcionProductos;
+    
+    @Column(nullable = false)
     private int cantElementos;
-
+    
     public Alimento(String descripcionProductos, int cantElementos, int id, LocalDate fechaIngresada) {
         super(id, fechaIngresada);
         this.descripcionProductos = descripcionProductos;
@@ -38,5 +41,4 @@ public class Alimento extends Donacion {
         cantElementos = cantidad;
     }
     
-
 }

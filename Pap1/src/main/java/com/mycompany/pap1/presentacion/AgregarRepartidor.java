@@ -50,6 +50,7 @@ public class AgregarRepartidor extends javax.swing.JFrame {
         });
 
         LicenciaText.setMinimumSize(new java.awt.Dimension(640, 23));
+        LicenciaText.setPreferredSize(new java.awt.Dimension(150, 22));
         LicenciaText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LicenciaTextActionPerformed(evt);
@@ -76,7 +77,7 @@ public class AgregarRepartidor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addComponent(jLabel1)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,6 +105,7 @@ public class AgregarRepartidor extends javax.swing.JFrame {
         try {
             var lic = Integer.parseInt(dato);
             FabricaCUsuario.getControlador().AgregarDatosAltaRepartidor(lic);
+            
             FabricaCUsuario.getControlador().ConfirmarAltaRepartidor();
             //volver al inicio
             JOptionPane.showMessageDialog(null, 
