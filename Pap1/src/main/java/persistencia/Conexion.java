@@ -28,8 +28,7 @@ public static Conexion getInstancia() {
 			emf = Persistence.createEntityManagerFactory("pap1hibernate");
 			em=emf.createEntityManager();
 		}
-		return instancia;
-                
+		return instancia;   
 }
 
 public EntityManager getEntityManager() {
