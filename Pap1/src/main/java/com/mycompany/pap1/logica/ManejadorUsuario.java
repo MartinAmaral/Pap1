@@ -23,5 +23,9 @@ public class ManejadorUsuario {
                 instancia = new ManejadorUsuario();
             return instancia;
     }
+
+    Beneficiario buscarBeneficiarioPorEmail(String emailBeneficiario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

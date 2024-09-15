@@ -45,9 +45,21 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuItem9.addActionListener(e -> mostrarModificarDonacion());
         jMenuItem2.addActionListener(e -> mostrarAgregarDonacion());
         jMenuItem1.addActionListener(e -> mostrarAgregarUsuario());
+        jMenuItem4.addActionListener(e -> mostrarListarBeneficiarios());
+        jMenuItem3.addActionListener(e -> mostrarAgregarDistribucion()); 
 
         IControladorDonacion controlador = new ControladorDonacion();
 
+    }
+    private void mostrarAgregarDistribucion() {
+        AgregarDistribucion agregarDistribucionFrame = new AgregarDistribucion();
+        desktopPane.add(agregarDistribucionFrame);
+        agregarDistribucionFrame.setVisible(true);
+    }
+    private void mostrarListarBeneficiarios() {
+    ListarBeneficiarios listarBeneficiariosFrame = new ListarBeneficiarios();
+    desktopPane.add(listarBeneficiariosFrame);
+    listarBeneficiariosFrame.setVisible(true);
     }
     private void mostrarAgregarUsuario() {
         AgregarUsuario agregarUsuarioFrame = new AgregarUsuario();

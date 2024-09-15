@@ -9,6 +9,7 @@ import com.mycompany.pap1.datatypes.dtAlimento;
 import com.mycompany.pap1.datatypes.dtArticulo;
 import com.mycompany.pap1.datatypes.dtDonacion;
 import com.mycompany.pap1.interfaces.IControladorDonacion;
+import java.time.LocalDate;
 
 
 /**
@@ -96,6 +97,23 @@ public class ControladorDonacion implements IControladorDonacion{
             return new dtArticulo(articulo.getId(), articulo.getFechaIngresada(), articulo.getDescripcion(), articulo.getPeso(), articulo.getDimensiones());
         }
         return null; 
+    }
+
+    @Override
+    public void crearDistribucion(LocalDate fechaPreparacion, LocalDate fechaEntrega, EstadoDistribucion estadoDistribucion, String emailBeneficiario, int idDonacion) {
+        // Crear una nueva instancia de Distribucion
+        Distribucion nuevaDistribucion = new Distribucion();
+        nuevaDistribucion.setFechaPreparacion(fechaPreparacion);
+        nuevaDistribucion.setFechaEntrega(fechaEntrega);
+        nuevaDistribucion.setEstadoDistribucion(estadoDistribucion);
+        nuevaDistribucion.setEmailBeneficiario(emailBeneficiario);
+        nuevaDistribucion.setIdDonacion(idDonacion);
+
+        // Guardar la nueva distribución en el manejador o repositorio
+        ManejadorDistribucion mD = ManejadorDistribucion.getInstancia(); // Asegúrate de tener un manejador de distribuciones
+        mD.agregarDistribucion(nuevaDistribucion);
+        
+        System.out.println("Distribución creada con éxito.");
     }
  }
 
