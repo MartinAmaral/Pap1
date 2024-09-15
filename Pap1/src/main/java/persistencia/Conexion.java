@@ -10,10 +10,7 @@ import javax.persistence.Persistence;
 
 
 
-/**
- *
- * @author gonza
- */
+
 public class Conexion  {
     
 private static Conexion instancia = null;
