@@ -8,14 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "alimentos")
+
 public class Alimento extends Donacion {
     
-    @Column(nullable = false)
+ 
     private String descripcionProductos;
     
-    @Column(nullable = false)
+    
     private int cantElementos;
     
     public Alimento(String descripcionProductos, int cantElementos, int id, LocalDate fechaIngresada) {

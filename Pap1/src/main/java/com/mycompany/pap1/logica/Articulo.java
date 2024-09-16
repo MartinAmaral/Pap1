@@ -6,17 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "articulos")
+
 public class Articulo extends Donacion {
     
-    @Column(nullable = false)
+
     private String descripcion;
     
-    @Column(nullable = false)
+    
     private float peso;
     
-    @Column(nullable = false)
+    
     private String dimensiones;
   
     public Articulo(String descripcion, float peso, String dimensiones, int id, LocalDate fechaIngresada) {

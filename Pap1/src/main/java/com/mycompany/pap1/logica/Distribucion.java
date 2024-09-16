@@ -11,27 +11,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "distribuciones")
+
 public class Distribucion {
     
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "donacion_id")
+   
     private Donacion donacion;
 
-    @Column(name = "fecha_preparacion")
+ 
     private LocalDate fechaPreparacion;
 
-    @Column(name = "fecha_entrega")
+  
     private LocalDate fechaEntrega;
 
-    @Column(name = "estado_distribucion")
-    @Enumerated(EnumType.STRING)
+  
     private EstadoDistribucion estadoDistribucion;
 
-    @ManyToOne
-    @JoinColumn(name = "beneficiario_id")
+   
     private Beneficiario beneficiario;
 
     public Distribucion() {
@@ -82,4 +77,6 @@ public class Distribucion {
     public void setDonacion(Donacion donacion){
         this.donacion = donacion;
     }
+    
+    
 }

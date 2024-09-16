@@ -37,6 +37,7 @@ public class ManejadorUsuario {
         
         em.getTransaction().commit();
         
+        
         System.out.println("User registrada con éxito.");
     } catch (Exception e) {
         System.out.println("Error al registrar el usuario: " + e.getMessage());

@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 public class Conexion  {
     
+    
     private static Conexion instancia = null;
     private static EntityManagerFactory emf;
 
@@ -14,7 +15,10 @@ public class Conexion  {
     public static Conexion getInstancia() {
         if (instancia == null) {
             instancia = new Conexion();
-            emf = Persistence.createEntityManagerFactory("pap1hibernate");
+            emf = Persistence.createEntityManagerFactory("com.mycompany_Pap1_jar_1.0-SNAPSHOTPU"); 
+            
+            
+            
         }
         return instancia;
     }

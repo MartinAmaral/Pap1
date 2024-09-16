@@ -15,25 +15,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-@Entity
-@Table(name = "beneficiarios")
+
 public class Beneficiario extends Usuario {
-    
-    @JoinColumn(name = "direccion")
+ 
     private String direccion;
     
-    @JoinColumn(name = "fecha_nacimiento")
+    
     private LocalDate fechaNacimiento;
     
-    @Enumerated(EnumType.STRING)
-    @JoinColumn(name = "estado_id")
+    
     private EstadoBeneficiario estado;
     
-    @Enumerated(EnumType.STRING)
-    @JoinColumn(name = "barrio_id")
+   
     private Barrio barrio;
     
-    @OneToMany(mappedBy = "beneficiario")
+    
     private List<Distribucion> distribuciones;
     
     public Beneficiario(String nombre, String email, String direccion, LocalDate fechaNacimiento, EstadoBeneficiario estado, Barrio barrio) {

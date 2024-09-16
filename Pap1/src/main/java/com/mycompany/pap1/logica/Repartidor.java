@@ -5,10 +5,31 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "repartidores")
 public class Repartidor extends Usuario {
 
-    @Column(nullable = false)
+    public Repartidor() {
+    super();
+    }
+
+    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
     private int numeroLicencia;
 
     public Repartidor(String nombre, String email, int numeroLicencia) {

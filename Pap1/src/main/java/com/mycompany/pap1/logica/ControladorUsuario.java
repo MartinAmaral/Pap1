@@ -104,6 +104,4 @@ public class ControladorUsuario implements IControladorUsuario {
         
         return res;
     }
-    
-    
 }
