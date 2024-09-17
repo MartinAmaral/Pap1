@@ -1,35 +1,45 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pap1.logica;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
-/**
- *
- * @author martin
- */
-abstract class Usuario {
-    protected String nombre;
-    protected String email;
+
+@MappedSuperclass
+public abstract class Usuario {
+    @Id
+    @Column(name="email")
+    private String email;
+
+    private String nombre;
+
+    public Usuario(String email, String nombre) {
+        this.email = email;
+        this.nombre = nombre;
+    }
 
     public Usuario() {
         super();
     }
-        
-    public String getNombre(){
-        return nombre;
-    }
-    
+
     public String getEmail(){
         return email;
     }
-    
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
     public void setNombre(String nombre){
         this.nombre = nombre;
-    }
-    
-    public void setEmail(String email){
-        this.email = email;   
     }
 }

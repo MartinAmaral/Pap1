@@ -1,28 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pap1.logica;
 
+import javax.persistence.Entity;
 
-/**
- *
- * @author horacio
- */
+@Entity
 public class Repartidor extends Usuario {
+private int numeroLicencia;
+    public Repartidor() {
+      
+    }
 
-    private int numeroLicencia;
-    public Repartidor(String nombre, String email,  int numeroLicencia) {
-        this.nombre = nombre;
-        this.email = email;
+    public Repartidor(String nombre, String email, int numeroLicencia) {
+        super(nombre,email); // No es necesario llamar a super() aquí, ya que la clase padre es abstracta
+        
         this.numeroLicencia = numeroLicencia;
     }
-    
 
-    public int getnumeroLicencia(){
+    public int getNumeroLicencia(){
         return numeroLicencia;
     }
-    public void setnumeroLicencia(int numeroLicencia){
+    public void setNumeroLicencia(int numeroLicencia){
         this.numeroLicencia = numeroLicencia;
     }
 }

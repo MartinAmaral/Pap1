@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.pap1.logica;
 
 
@@ -11,10 +8,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author horacio
- */
 public class ControladorUsuario implements IControladorUsuario {
 
     private String altaUsuarioNombre;
@@ -32,6 +25,17 @@ public class ControladorUsuario implements IControladorUsuario {
                 instancia = new ControladorUsuario();
             return instancia;
     }
+    
+  
+    
+    public void crearRepartidor(String nombre, String email, int numeroLicencia){
+        Repartidor user = new Repartidor(nombre, email, numeroLicencia);
+        ManejadorUsuario mD = ManejadorUsuario.getInstancia();
+        mD.agregarEntidad(user);
+        System.out.println("Distribucion registrada con exito.");
+    }
+    
+    
     
     @Override
     public boolean ExisteUsuario(String email) {
@@ -66,16 +70,17 @@ public class ControladorUsuario implements IControladorUsuario {
     @Override
     public void ConfirmarAltaBeneficiario() {
         var m = ManejadorUsuario.getInstancia();
-        m.usuarios.add(new Beneficiario(altaUsuarioNombre,altaUsuarioEmail, altaUsuarioDireccion,
+        m.agregarEntidad(new Beneficiario(altaUsuarioNombre,altaUsuarioEmail, altaUsuarioDireccion,
         altaUsuarioFecha, altaUsuarioEstado, altaUsuarioBarrio));
     }
 
     @Override
     public void ConfirmarAltaRepartidor() {
         var m = ManejadorUsuario.getInstancia();
-        m.usuarios.add(new Repartidor(altaUsuarioNombre,altaUsuarioEmail,altaUsuarioLicencia));
+        m.agregarEntidad(new Repartidor(altaUsuarioNombre,altaUsuarioEmail,altaUsuarioLicencia));
     }
-
+    
+    
     @Override
     public void CancelartAlta() {
         altaUsuarioNombre ="";
@@ -100,6 +105,4 @@ public class ControladorUsuario implements IControladorUsuario {
         
         return res;
     }
-    
-    
 }

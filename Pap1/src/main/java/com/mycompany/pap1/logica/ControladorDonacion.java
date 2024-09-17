@@ -49,7 +49,7 @@ public class ControladorDonacion implements IControladorDonacion{
 
     
     ManejadorDonacion mD = ManejadorDonacion.getInstancia();
-    mD.agregarDonacion(nuevaDonacion);
+    mD.agregarEntidad(nuevaDonacion);
     System.out.println("Donacion registrada con exito.");
     }
 

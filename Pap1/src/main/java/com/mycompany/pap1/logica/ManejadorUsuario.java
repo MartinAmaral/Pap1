@@ -1,17 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.pap1.logica;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import com.mycompany.pap1.persistencia.Conexion;
 
-/**
- *
- * @author horacio
- */
+
 public class ManejadorUsuario {
     private static ManejadorUsuario instancia = null;
     public List<Usuario> usuarios = new ArrayList<>();
@@ -23,5 +20,27 @@ public class ManejadorUsuario {
                 instancia = new ManejadorUsuario();
             return instancia;
     }
+    
+     
+   public void agregarEntidad(Object user) {
+         
+    try {
+        Conexion conexion = Conexion.getInstancia();
+        EntityManager em = conexion.getEntityManager();
+        
+        em.getTransaction().begin();
+        
+        em.persist(user);
+        
+        em.getTransaction().commit();
+        
+        
+        System.out.println("User registrada con éxito.");
+    } catch (Exception e) {
+        System.out.println("Error al registrar el usuario: " + e.getMessage());
+    }
+}   
+     
+     
     
 }

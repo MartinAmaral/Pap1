@@ -7,8 +7,22 @@ package com.mycompany.pap1.presentacion;
 
 
 import com.mycompany.pap1.interfaces.IControladorDonacion;
+import com.mycompany.pap1.logica.Alimento;
+import com.mycompany.pap1.logica.Articulo;
+import com.mycompany.pap1.logica.Barrio;
+import static com.mycompany.pap1.logica.Barrio.CORDON;
+import com.mycompany.pap1.logica.Beneficiario;
 import com.mycompany.pap1.logica.ControladorDonacion;
+import com.mycompany.pap1.logica.Distribucion;
+import com.mycompany.pap1.logica.Donacion;
+import com.mycompany.pap1.logica.EstadoBeneficiario;
+import static com.mycompany.pap1.logica.EstadoBeneficiario.ACTIVO;
+import com.mycompany.pap1.logica.EstadoDistribucion;
+import static com.mycompany.pap1.logica.EstadoDistribucion.PENDIENTE;
+import com.mycompany.pap1.logica.ManejadorDonacion;
 import java.awt.BorderLayout;
+import java.time.LocalDate;
+import java.time.Month;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
@@ -227,6 +241,19 @@ public class FramePrincipal extends javax.swing.JFrame {
                 new FramePrincipal().setVisible(true);
             }
         });
+        
+        
+        Articulo a = new Articulo("pepon", 32, "un kilo",LocalDate.of(2024, Month.MARCH, 02));
+        ManejadorDonacion.getInstancia().agregarEntidad(a);
+        
+        //Alimento a = new Alimento ("caca", 3, LocalDate.of(2024, Month.MARCH, 03));
+        //ManejadorDonacion.getInstancia().agregarEntidad(a);
+        
+       // Beneficiario b = new Beneficiario("alvert", "alvert@internetr.com","avis siempreviva",LocalDate.of(2024, Month.MARCH, 04),ACTIVO,CORDON);
+        //ManejadorDonacion.getInstancia().agregarEntidad(b);
+        
+     //  Distribucion d = new Distribucion (b,a,20,7,PENDIENTE);
+       //ManejadorDonacion.getInstancia().agregarEntidad(d);      
     }
     
 
